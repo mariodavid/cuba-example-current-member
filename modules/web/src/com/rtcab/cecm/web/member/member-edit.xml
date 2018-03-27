@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.rtcab.cecm.web.member.MemberEdit"
+        datasource="memberDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.rtcab.cecm.web.member">
+    <dsContext>
+        <datasource id="memberDs"
+                    class="com.rtcab.cecm.entity.Member"
+                    view="member-view"/>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="memberDs">
+            <column width="250px">
+                <field property="name"/>
+                <field optionsDatasource="usersDs"
+                       property="user"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

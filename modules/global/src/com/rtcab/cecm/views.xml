@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.rtcab.cecm.entity.Member"
+          extends="_local"
+          name="member-view">
+        <property name="user"
+                  view="_minimal"/>
+    </view>
+</views>

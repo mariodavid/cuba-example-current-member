@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.rtcab.cecm.web.member.MemberBrowse"
+        focusComponent="membersTable"
+        lookupComponent="membersTable"
+        messagesPack="com.rtcab.cecm.web.member">
+    <dsContext>
+        <groupDatasource id="membersDs"
+                         class="com.rtcab.cecm.entity.Member"
+                         view="member-view">
+            <query>
+                <![CDATA[select e from cecm$Member e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="membersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="membersTable"
+                datasource="membersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="membersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="user"/>
+            </columns>
+            <rows datasource="membersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="membersTable.create"/>
+                <button id="editBtn"
+                        action="membersTable.edit"/>
+                <button id="removeBtn"
+                        action="membersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

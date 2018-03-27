@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/rtcab/cecm/screens.xml"/>
+    <screen id="cecm$Member.browse"
+            template="com/rtcab/cecm/web/member/member-browse.xml"/>
+    <screen id="cecm$Member.edit"
+            template="com/rtcab/cecm/web/member/member-edit.xml"/>
+
+    <screen id="current-member-opener"
+            class="com.rtcab.cecm.web.CurrentMemberOpener"/>
+</screen-config>
